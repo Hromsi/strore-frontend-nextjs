@@ -1,0 +1,11 @@
+@import 'normalize.css';
+
+:root {
+  /* --chakra-colors-chakra-body-bg: #f5f3f3 !important; */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    
+  }
+}
