@@ -1,4 +1,27 @@
-import { IProduct } from "../types/api.types";
+import { IProduct, ICategory } from "../types/api.types";
+
+export const CATEGORIES: ICategory[] = [
+    {
+        "id": 1,
+        "title": "Laptops"
+    },
+    {
+        "id": 2,
+        "title": "Smartphones"
+    },
+    {
+        "id": 3,
+        "title": "Audio speakers"
+    },
+    {
+        "id": 4,
+        "title": "Headphones"
+    },
+    {
+        "id": 5,
+        "title": "Mobile-accessories"
+    }
+];
 
 export const PRODUCTS: IProduct[] = [
     // Laptops
