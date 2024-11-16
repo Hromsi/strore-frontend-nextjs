@@ -6,7 +6,7 @@ interface ContainerProps extends ChakraContainerProps {
 
 const Container = ({ children, ...props }: ContainerProps) => {
     return (
-        <ChakraContainer maxW="8xl" display="flex" {...props}>
+        <ChakraContainer maxW="5xl" display="flex" {...props}>
             {children}
         </ChakraContainer>
     );
