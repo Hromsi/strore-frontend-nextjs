@@ -27,9 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/logo.svg" sizes="any" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning={true}>
         <Providers>
-          <Header/>
+          <Header />
           {children}
         </Providers>
       </body>
