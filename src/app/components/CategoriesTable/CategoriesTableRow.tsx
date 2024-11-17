@@ -34,7 +34,7 @@ const CategoriesRowItem = ({ children, ...props }: CategoriesRowItemProps & Tabl
 export const CategoriesTableRow = ({ categoryItem }: CategoriesTableRowProps) => {
     return (
         <Tr>
-            <CategoriesRowItem width={1}>
+            <CategoriesRowItem width="150px">
                 {categoryItem.id}
             </CategoriesRowItem>
             <CategoriesRowItem overflow="hidden">

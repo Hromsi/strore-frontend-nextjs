@@ -50,7 +50,7 @@ export const ProductsTableRow = ({ productItem }: ProductsTableRowProps) => {
 
     return (
         <Tr>
-            <ProductsRowItem>
+            <ProductsRowItem maxW="150px">
                 {productItem.id}
             </ProductsRowItem>
             <ProductsRowItem>
