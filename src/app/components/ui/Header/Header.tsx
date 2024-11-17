@@ -27,6 +27,7 @@ const Header = () => {
           <Image src="/logo.svg" alt='Tech Heim logo' height="63px" width="56px" />
         </Link>
         <HStack>
+          <ButtonColorMode />
           {/* TODO: create CartSummaryButton component */}
           {pathname === ROUTES.index && (
             <Button
@@ -40,7 +41,6 @@ const Header = () => {
               0
             </Button>
           )}
-          <ButtonColorMode />
           {pathname === ROUTES.admin && (
             <Avatar name='Admin' src='https://bit.ly/broken-link' title="Admin" bgColor="gray.400" />
           )}
