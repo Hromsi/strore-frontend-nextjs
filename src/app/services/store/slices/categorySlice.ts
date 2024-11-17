@@ -18,7 +18,7 @@ export const categorySlice = createSlice({
 		},
 		createCategory: (state, action: PayloadAction<ICategoryCreate>) => {
 			const newCategory: ICategory = {
-				id: Number(new Date().toISOString()),
+				id: new Date().getTime(),
 				title: action.payload.title,
 			};
 			state.categories.push(newCategory);
@@ -31,7 +31,7 @@ export const categorySlice = createSlice({
 		updateCategoryById: (state, action:  PayloadAction<ICategoryUpdate>) => {
 			let isFound = false;
 
-			const newProducts = state.categories.map(category => {
+			const newCategories = state.categories.map(category => {
 				if (category.id === action.payload.id) {
 					isFound = true;
 					// If find the product then update his values
@@ -46,7 +46,8 @@ export const categorySlice = createSlice({
 
 			if (!isFound) return console.error(`Category with id = ${action.payload.id} is not found!`);
 
-			saveToLocalStorage("categories", newProducts);
+			state.categories = newCategories;
+			saveToLocalStorage("categories", newCategories);
 		},
 	},
 });

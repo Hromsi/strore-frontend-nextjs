@@ -18,7 +18,7 @@ export const productSlice = createSlice({
 		},
 		createProduct: (state, action: PayloadAction<IProductCreate>) => {
 			const newProduct: IProduct = {
-				id: Number(new Date().toISOString()),
+				id: new Date().getTime(),
 				categoryID: action.payload.categoryID,
 				title: action.payload.title,
 				description: action.payload.description,
@@ -50,6 +50,7 @@ export const productSlice = createSlice({
 
 			if (!isFound) return console.error(`Product with id = ${action.payload.id} is not found!`);
 
+			state.products = newProducts;
 			saveToLocalStorage("products", newProducts);
 		},
 	},
