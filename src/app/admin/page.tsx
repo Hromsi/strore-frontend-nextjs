@@ -3,9 +3,10 @@
 import { redirect } from "next/navigation";
 import Container from "../components/ui/Container/Container";
 import { ADMIN_PASSWORD, ROUTES } from "../config/constants";
-import { useToast } from "@chakra-ui/react";
+import { Box, Spinner, Tab, TabList, TabPanel, TabPanels, Tabs, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { getFromLocalStorage, saveToLocalStorage } from "../services/helpers/localStorage";
+import { ProductsTable } from "../components/ProductsTable/ProductsTable";
 
 export default function Admin() {
 	const toast = useToast();
@@ -14,7 +15,7 @@ export default function Admin() {
 	useEffect(() => {
 		const passwordFromLocal = getFromLocalStorage("adminPassword");
 		setPassword(passwordFromLocal as string | null);
-		
+
 		if (!passwordFromLocal || passwordFromLocal !== ADMIN_PASSWORD) {
 			const password = window.prompt("Enter admin password:");
 
@@ -26,7 +27,7 @@ export default function Admin() {
 					position: "top-right",
 					isClosable: true
 				})
-		
+
 				return redirect(ROUTES.index);
 			}
 			saveToLocalStorage("adminPassword", password);
@@ -34,11 +35,34 @@ export default function Admin() {
 		};
 	}, []);
 
-	if (password !== ADMIN_PASSWORD) return <></>;	
-		
+	if (password !== ADMIN_PASSWORD) return (
+		<Spinner
+			margin="auto"
+			thickness='4px'
+			speed='0.65s'
+			emptyColor='gray.200'
+			color='blue.500'
+			size='xl'
+		/>
+	);
+
 	return (
 		<Container as="main" flexDir="column">
-			Admin page
+			<Tabs>
+				<TabList>
+					<Tab>Products</Tab>
+					<Tab>Categories</Tab>
+				</TabList>
+				<TabPanels>
+					<TabPanel>
+						<ProductsTable/>
+					</TabPanel>
+					<TabPanel>
+						<Box>Categories table</Box>
+					</TabPanel>
+				</TabPanels>
+			</Tabs>
+			
 		</Container>
 	);
 }
