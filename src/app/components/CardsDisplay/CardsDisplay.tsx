@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppSelector } from "@/app/services/store/hooks";
-import { Grid, HStack, Spinner, VStack } from "@chakra-ui/react";
+import { Grid, Heading, HStack, Spinner, VStack } from "@chakra-ui/react";
 import Card from "../Card/Card";
 import Select from "../ui/Select/Select";
 import { getCategoryOptions } from "@/app/services/helpers/options/getOptions";
@@ -27,11 +27,7 @@ export default function CardsDisplay() {
     }, [pickedCategory]);
 
     return (
-        <VStack
-            paddingTop="15px"
-            paddingBottom="15px"
-            gap="15px"
-        >
+        <>
             <Select options={categoryOptions} onChange={setPickedCategory} placeholder="Select category" />
             {products ? (
                 <Grid
@@ -51,6 +47,6 @@ export default function CardsDisplay() {
                     size='xl'
                 />
             )}
-        </VStack>
+        </>
     );
 }

@@ -22,16 +22,16 @@ export default function Card({
     price,
 }: IProduct) {
     return (
-        <ChaCard>
+        <ChaCard as="article">
             <CardBody display="flex" flexDirection="column" >
                 <Image
                     src={imageUrl}
                     borderRadius="lg"
                 />
                 <Stack display="flex" mt="6" spacing="3" justifyContent="space-between" height="100%" >
-                    <Heading size="md">{title}</Heading>
+                    <Heading as="h2" size="md">{title}</Heading>
                     <Flex flexDirection="column" height="100%" justifyContent="space-between" gap={3}>
-                        <Text fontSize="sm">{description}</Text>
+                        <Text as="p" fontSize="sm">{description}</Text>
                         <Flex gap={3} justifyContent="space-between" alignItems="center">
                             <Text color="blue.600" fontSize="2xl">
                                 $ {price}
