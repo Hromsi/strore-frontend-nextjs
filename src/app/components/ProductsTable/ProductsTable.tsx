@@ -5,6 +5,7 @@ import { Table } from "../table/table";
 import { TableHeaderItem } from "../table/tableHeaderItem";
 import { HeaderElement } from "@/app/types/index.types";
 import { ProductsTableActions } from "./ProductsTableActions";
+import { useEffect } from "react";
 
 const productsHeader: HeaderElement[] = [
     {

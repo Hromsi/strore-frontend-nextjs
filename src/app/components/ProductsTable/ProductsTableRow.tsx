@@ -5,10 +5,12 @@ import {
     TableCellProps,
     Td,
     Tr,
-    // useToast
+    useDisclosure
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { ModalProductForm } from "../ModalProductForm/ModalProductForm";
+import { ModalDeleteProduct } from "../ModalDeleteProduct/ModalDeleteProduct";
 
 interface ProductsTableRowProps {
     productItem: IProduct;
@@ -35,7 +37,16 @@ const ProductsRowItem = ({ children, ...props }: ProductsRowItemProps & TableCel
 }
 
 export const ProductsTableRow = ({ productItem }: ProductsTableRowProps) => {
-    // const toast = useToast();
+    const {
+        isOpen: isOpenProductUpdateModal,
+        onOpen: onOpenProductUpdateModal,
+        onClose: onCloseProductUpdateModal
+    } = useDisclosure();
+    const {
+        isOpen: isOpenProductDeleteModal,
+        onOpen: onOpenProductDeleteModal,
+        onClose: onCloseProductDeleteModal
+    } = useDisclosure();
 
     return (
         <Tr>
@@ -64,8 +75,22 @@ export const ProductsTableRow = ({ productItem }: ProductsTableRowProps) => {
                 
             </ProductsRowItem>
             <ProductsRowItem maxWidth="130px">
-                <Button colorScheme="green" size="sm" variant="ghost"><EditIcon /></Button>
-                <Button colorScheme="red" size="sm" variant="ghost"><DeleteIcon/></Button>
+                <Button colorScheme="green" size="sm" variant="ghost" onClick={onOpenProductUpdateModal}>
+                    <EditIcon />
+                </Button>
+                <Button colorScheme="red" size="sm" variant="ghost" onClick={onOpenProductDeleteModal}>
+                    <DeleteIcon/>
+                </Button>
+                {isOpenProductUpdateModal && <ModalProductForm
+                    isOpen={isOpenProductUpdateModal}
+                    onClose={onCloseProductUpdateModal}
+                    productItem={productItem}
+                />}
+                {isOpenProductDeleteModal && <ModalDeleteProduct
+                    isOpen={isOpenProductDeleteModal}
+                    onClose={onCloseProductDeleteModal}
+                    productID={productItem.id}
+                />}
             </ProductsRowItem>
         </Tr>
     );
