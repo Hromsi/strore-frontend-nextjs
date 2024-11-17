@@ -6,7 +6,7 @@ import { ChangeEvent } from "react";
 
 export interface SelectProps extends Omit<ChakraSelectProps, "onChange"> {
     options: Maybe<TOption[]>;
-    onChange: (newValue: TOption) => void;
+    onChange?: (newValue: TOption) => void;
 }
 
 const Select = ({ options, onChange, ...props }: SelectProps) => {
@@ -14,7 +14,7 @@ const Select = ({ options, onChange, ...props }: SelectProps) => {
         const selectedValue = event.target.value;
         const selectedLabel = options?.find(option => String(option.value) === selectedValue)?.label;
         
-        onChange({ value: Number(selectedValue), label: selectedLabel });
+        onChange?.({ value: Number(selectedValue), label: selectedLabel });
       };
 
     return (
