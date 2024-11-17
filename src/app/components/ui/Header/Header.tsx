@@ -7,7 +7,16 @@ import Container from "../Container/Container";
 
 const Header = () => {
   return (
-    <HStack as="header" minH="100px" borderBottom="1px solid" borderColor="blue.300">
+    <HStack
+      as="header"
+      minH="100px"
+      borderBottom="1px solid"
+      borderColor="blue.300"
+      backgroundColor="var(--chakra-colors-chakra-body-bg)"
+      position="sticky"
+      top={0}
+      zIndex={10}
+    >
       <Container justifyContent="space-between" alignItems="center" >
         <Image src="/logo.svg" alt='Tech Heim logo' height="63px" width="56px" />
         <HStack>
