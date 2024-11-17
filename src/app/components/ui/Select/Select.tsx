@@ -1,8 +1,10 @@
+"use client";
+
 import { Maybe, TOption } from "@/app/types/index.types";
 import { Select as ChakraSelect, type SelectProps as ChakraSelectProps, Box } from "@chakra-ui/react";
 import { ChangeEvent } from "react";
 
-interface SelectProps extends Omit<ChakraSelectProps, "onChange"> {
+export interface SelectProps extends Omit<ChakraSelectProps, "onChange"> {
     options: Maybe<TOption[]>;
     onChange: (newValue: TOption) => void;
 }
