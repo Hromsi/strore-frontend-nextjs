@@ -5,7 +5,7 @@ import { useAppDispatch } from "../../store/hooks";
 import { removeProductById } from "@/app/services/store/slices/productSlice";
 import { useToast } from "@chakra-ui/react";
 
-interface IUpdateProductOptions {
+interface IDeleteProductOptions {
     onSuccess?: () => void;
     onError?: () => void;
 }
@@ -16,7 +16,7 @@ export const useDeleteProduct = () => {
     const dispatch = useAppDispatch();
     const toast = useToast();
 
-    const deleteProductQuery = async (productID: number, options?: IUpdateProductOptions ) => {
+    const deleteProductQuery = async (productID: number, options?: IDeleteProductOptions ) => {
         try {
             setIsLoading(true);
             
