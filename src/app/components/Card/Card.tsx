@@ -14,13 +14,29 @@ import {
     Text,
     Flex,
 } from "@chakra-ui/react";
+import { useAddProductToCart } from "@/app/services/hooks/cart/useAddProductToCart";
 
 export default function Card({
     description,
     imageUrl,
     title,
     price,
+    id,
+    categoryID
 }: IProduct) {
+    const [addProductToCart] = useAddProductToCart();
+
+    const handleAddProductToCart = async () => {
+        await addProductToCart({
+            id,
+            categoryID,
+            title,
+            description,
+            price,
+            imageUrl,
+        });
+    };
+
     return (
         <ChaCard as="article">
             <CardBody display="flex" flexDirection="column" >
@@ -46,7 +62,7 @@ export default function Card({
                     <Button variant="solid" colorScheme="blue">
                         Buy now
                     </Button>
-                    <Button variant="ghost" colorScheme="blue">
+                    <Button variant="ghost" colorScheme="blue" onClick={handleAddProductToCart}>
                         Add
                     </Button>
                 </ButtonGroup>
