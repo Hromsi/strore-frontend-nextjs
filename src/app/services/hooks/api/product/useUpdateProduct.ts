@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useAppDispatch } from "../../store/hooks";
 import { updateProductById } from "@/app/services/store/slices/productSlice";
 import { useToast } from "@chakra-ui/react";
+import { useAppDispatch } from "@/app/services/store/hooks";
 
 interface IUpdateProductOptions {
     onSuccess?: () => void;

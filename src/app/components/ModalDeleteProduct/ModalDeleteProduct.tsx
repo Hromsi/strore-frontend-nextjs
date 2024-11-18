@@ -1,6 +1,6 @@
 import { Button, Modal, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import React, { FormEvent } from "react";
-import { useDeleteProduct } from "@/app/services/hooks/api/useDeleteProduct";
+import { useDeleteProduct } from "@/app/services/hooks/api/product/useDeleteProduct";
 
 interface ModalDeleteProductProps {
     isOpen: boolean;

@@ -2,8 +2,8 @@ import { IProduct } from "@/app/types/api.types";
 import { Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from "@chakra-ui/react";
 import React, { FormEvent } from "react";
 import SelectCategory from "../SelectCategory/SelectCategory";
-import { useCreateProduct } from "@/app/services/hooks/api/useCreateProduct";
-import { useUpdateProduct } from "@/app/services/hooks/api/useUpdateProduct";
+import { useCreateProduct } from "@/app/services/hooks/api/product/useCreateProduct";
+import { useUpdateProduct } from "@/app/services/hooks/api/product/useUpdateProduct";
 
 interface ModalProductFormProps {
     isOpen: boolean;
