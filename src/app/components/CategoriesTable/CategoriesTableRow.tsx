@@ -1,12 +1,9 @@
-import { ICategory, IProduct } from "@/app/types/api.types";
+import { ICategory } from "@/app/types/api.types";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import {
-    Button,
-    TableCellProps,
-    Td,
-    Tr
-} from "@chakra-ui/react";
+import { Button, TableCellProps, Td, Tr, useDisclosure } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import { ModalCategoryForm } from "../ModalCategoryForm/ModalCategoryForm";
+import { ModalDeleteCategory } from "../ModalDeleteCategory/ModalDeleteCategory";
 
 interface CategoriesTableRowProps {
     categoryItem: ICategory;
@@ -32,6 +29,18 @@ const CategoriesRowItem = ({ children, ...props }: CategoriesRowItemProps & Tabl
 }
 
 export const CategoriesTableRow = ({ categoryItem }: CategoriesTableRowProps) => {
+    const {
+        isOpen: isOpenCategoryUpdateModal,
+        onOpen: onOpenCategoryUpdateModal,
+        onClose: onCloseCategoryUpdateModal
+    } = useDisclosure();
+    const {
+        isOpen: isOpenCategoryDeleteModal,
+        onOpen: onOpenCategoryDeleteModal,
+        onClose: onCloseCategoryDeleteModal
+    } = useDisclosure();
+
+
     return (
         <Tr>
             <CategoriesRowItem width="150px">
@@ -41,8 +50,22 @@ export const CategoriesTableRow = ({ categoryItem }: CategoriesTableRowProps) =>
                 {categoryItem.title}
             </CategoriesRowItem>
             <CategoriesRowItem width={1}>
-                <Button colorScheme="green" size="sm" variant="ghost"><EditIcon /></Button>
-                <Button colorScheme="red" size="sm" variant="ghost"><DeleteIcon /></Button>
+                <Button colorScheme="green" size="sm" variant="ghost" onClick={onOpenCategoryUpdateModal}>
+                    <EditIcon />
+                </Button>
+                <Button colorScheme="red" size="sm" variant="ghost" onClick={onOpenCategoryDeleteModal}>
+                    <DeleteIcon />
+                </Button>
+                {isOpenCategoryUpdateModal && <ModalCategoryForm
+                    isOpen={isOpenCategoryUpdateModal}
+                    onClose={onCloseCategoryUpdateModal}
+                    categoryItem={categoryItem}
+                />}
+                {isOpenCategoryDeleteModal && <ModalDeleteCategory
+                    isOpen={isOpenCategoryDeleteModal}
+                    onClose={onCloseCategoryDeleteModal}
+                    categoryID={categoryItem.id}
+                />}
             </CategoriesRowItem>
         </Tr>
     );
