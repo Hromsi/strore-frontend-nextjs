@@ -1,12 +1,12 @@
 'use client';
 
-import { HStack, Icon, Image, Button, Avatar, Box } from "@chakra-ui/react";
+import { HStack, Image, Avatar } from "@chakra-ui/react";
 import ButtonColorMode from "../../ButtonColorMode";
-import { LuShoppingCart } from "react-icons/lu";
 import Container from "../Container/Container";
 import { usePathname } from 'next/navigation'
 import Link from "next/link";
 import { ROUTES } from "@/app/config/constants";
+import Cart from "../../Cart/Cart";
 
 const Header = () => {
   const pathname = usePathname();
@@ -28,18 +28,8 @@ const Header = () => {
         </Link>
         <HStack>
           <ButtonColorMode />
-          {/* TODO: create CartSummaryButton component */}
           {pathname === ROUTES.index && (
-            <Button
-              leftIcon={
-                <Icon as={LuShoppingCart} w={6} h={6} color='gray.500' />
-              }
-              color="gray.500"
-              borderRadius="full"
-              variant="ghost"
-            >
-              0
-            </Button>
+            <Cart/>
           )}
           {pathname === ROUTES.admin && (
             <Avatar name='Admin' src='https://bit.ly/broken-link' title="Admin" bgColor="gray.400" />
