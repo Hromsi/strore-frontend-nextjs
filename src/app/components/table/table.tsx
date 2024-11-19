@@ -1,8 +1,10 @@
 import { Maybe } from "@/app/types/index.types";
 import {
+    Box,
     Table as ChakraTable,
     TableContainer,
     Tbody,
+    Td,
     Thead,
     Tr
 } from "@chakra-ui/react";
@@ -25,11 +27,13 @@ export const Table = <T, K>({ headerItems, renderHeader, bodyItems, renderBody }
                             {headerItems.map((item, idx, array) => renderHeader(item, idx, array))}
                         </Tr>
                     </Thead>
-                    <Tbody overflow="auto">
+                    <Tbody overflow="auto" minH="100%">
                         {bodyItems && bodyItems.length ? (
                             bodyItems?.map((item, idx, array) => renderBody(item, idx, array))
                         ) : (
-                            <Tr>No data</Tr>
+                            <Tr height="200px">
+                                <Td colSpan={99} fontSize="24px" textAlign="center">No data</Td>
+                            </Tr>
                         )}
                     </Tbody>
                 </ChakraTable>
