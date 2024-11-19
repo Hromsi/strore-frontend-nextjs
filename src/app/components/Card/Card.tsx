@@ -43,6 +43,7 @@ export default function Card({
                 <Image
                     src={imageUrl}
                     borderRadius="lg"
+                    loading="lazy"
                 />
                 <Stack display="flex" mt="6" spacing="3" justifyContent="space-between" height="100%" >
                     <Heading as="h2" size="md">{title}</Heading>
