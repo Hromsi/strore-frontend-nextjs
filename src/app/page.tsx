@@ -2,7 +2,6 @@ import Container from "./components/ui/Container/Container";
 import CardsDisplay from "./components/CardsDisplay/CardsDisplay";
 import { Heading, VStack } from "@chakra-ui/react";
 
-
 export default function Home() {
 
 	return (
@@ -14,7 +13,7 @@ export default function Home() {
 				gap="15px"
 			>
 				<Heading as="h1" color="blue.500">Products of Tech Heim</Heading>
-				<CardsDisplay/>
+				<CardsDisplay />
 			</VStack>
 		</Container>
 	);

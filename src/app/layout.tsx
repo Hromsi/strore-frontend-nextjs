@@ -16,9 +16,18 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Store",
-  description: "The best store",
-};
+	title: "Tech Heim: Innovative Electronics Store",
+	description: "Discover cutting-edge technology products. High-quality electronics directly from manufacturers. Your gateway to innovation.",
+  icons: "/logo.svg",
+	openGraph: {
+		title: "Tech Heim - Your Electronics Innovation Hub",
+		description: "Cutting-edge electronics directly from manufacturers",
+		siteName: "Tech Heim",
+		images: "/logo.svg",
+		type: "website",
+		locale: "en_US"
+	}
+}
 
 export default function RootLayout({
   children,
@@ -27,9 +36,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/logo.svg" sizes="any" />
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning={true}>
         <Providers>
           <Header />
