@@ -25,7 +25,8 @@ export const metadata: Metadata = {
 		siteName: "Tech Heim",
 		images: "/logo.svg",
 		type: "website",
-		locale: "en_US"
+		locale: "en_US",
+    url: process.env.PUBLIC_URL
 	}
 }
 
