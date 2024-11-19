@@ -61,7 +61,13 @@ export default function CartCard({ productCartItem }: CartCardProps) {
                 </CardBody>
                 <CardFooter p="0" display="flex" gap="2" justify="space-between" alignItems="center">
                     <Flex gap="2" alignItems="center">
-                        <Button colorScheme="blue" size="sm" variant="ghost" onClick={handleRemoveOneProductFromCart}>
+                        <Button
+                            colorScheme="blue"
+                            size="sm"
+                            variant="ghost"
+                            onClick={handleRemoveOneProductFromCart}
+                            disabled={productCartItem.total === 1}
+                        >
                             <CiSquareMinus />
                         </Button>
                         <Text fontWeight="semibold" fontSize="12px">
@@ -70,6 +76,7 @@ export default function CartCard({ productCartItem }: CartCardProps) {
                         <Button colorScheme="blue" size="sm" variant="ghost" onClick={handleAddOneProductToCart}>
                             <CiSquarePlus />
                         </Button>
+                        <Text fontWeight="bold">{productCartItem.price} $</Text>
                     </Flex>
                     <Button colorScheme="red" size="sm" variant="ghost" onClick={handleRemoveProductFromCart}>
                         <DeleteIcon />
