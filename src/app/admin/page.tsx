@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Client from "./client";
+import Client from "@/app/admin/client";
 
 export const metadata: Metadata = {
 	title: "Admin panel Tech Heim"

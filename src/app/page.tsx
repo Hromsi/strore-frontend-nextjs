@@ -1,5 +1,5 @@
-import Container from "./components/ui/Container/Container";
-import CardsDisplay from "./components/CardsDisplay/CardsDisplay";
+import Container from "@/components/ui/Container/Container";
+import CardsDisplay from "@/components/CardsDisplay/CardsDisplay";
 import { Heading, VStack } from "@chakra-ui/react";
 
 export default function Home() {

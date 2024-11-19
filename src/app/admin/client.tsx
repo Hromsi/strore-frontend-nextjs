@@ -1,13 +1,13 @@
 "use client";
 
 import { redirect } from "next/navigation";
-import Container from "../components/ui/Container/Container";
-import { ADMIN_PASSWORD, ROUTES } from "../config/constants";
+import Container from "@/components/ui/Container/Container";
+import { ADMIN_PASSWORD, ROUTES } from "@/config/constants";
 import { Spinner, Tab, TabList, TabPanel, TabPanels, Tabs, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { getFromLocalStorage, saveToLocalStorage } from "../services/helpers/localStorage";
-import { ProductsTable } from "../components/ProductsTable/ProductsTable";
-import { CategoriesTable } from "../components/CategoriesTable/CategoriesTable";
+import { getFromLocalStorage, saveToLocalStorage } from "@/services/helpers/localStorage";
+import { ProductsTable } from "@/components/ProductsTable/ProductsTable";
+import { CategoriesTable } from "@/components/CategoriesTable/CategoriesTable";
 
 export default function Client() {
 	const toast = useToast();
